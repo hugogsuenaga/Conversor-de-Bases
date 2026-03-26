@@ -1,0 +1,160 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+</head>
+
+<body style="background-color: #d4a735;">
+    <h1 style="font-family: 'Trebuchet MS', sans-serif;">Conversor de bases</h1>
+    <div style="display: grid;gap: 16px;">
+        <div style="gap: 16px; display: flex; flex-direction: row; font-family: 'Trebuchet MS', sans-serif;">
+            <div
+                style="background-color: white;border-width: 3px; border-color: black; border-style: solid; border-radius: 10px; padding-left: 20px; width: 400px;">
+                <h3>Digite um número decimal:</h3>
+                <input id="demo1d" type="text" oninput="verDecimal()" placeholder="Ex: 983">
+                <br><br>
+
+                <button style="border-style: solid; border-radius: 7px;border-width: 2px; background-color: white;"
+                    onclick="convFromDecimal()">Converter</button>
+
+                <h3>Resultados:</h3>
+                <span style="display: flex; flex-direction: row;">Octal:
+                    <div id="demo2d"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">Hexadecimal:
+                    <div id="demo3d"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">Binário:
+                    <div id="demo4d"></div><br><br>
+                </span>
+            </div>
+            <div
+                style="background-color: white;border-width: 3px; border-color: black; border-style: solid; border-radius: 10px; padding-left: 20px; width: 400px;">
+                <h3>Digite um número octal:</h3>
+                <input id="demo1o" type="text" oninput="verOctal()" placeholder="Ex: 763">
+                <br><br>
+
+                <button style="border-style: solid; border-radius: 7px;border-width: 2px; background-color: white;"
+                    onclick="convFromOctal()">Converter</button>
+
+                <h3>Resultados:</h3>
+                <span style="display: flex; flex-direction: row;">decimal:
+                    <div id="demo2o"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">Hexadecimal:
+                    <div id="demo3o"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">Binário:
+                    <div id="demo4o"></div><br><br>
+                </span>
+            </div>
+
+        </div>
+
+        <div style="gap: 16px; display: flex; flex-direction: row; font-family: 'Trebuchet MS', sans-serif;">
+            <div
+                style="background-color: white; border-width: 3px; border-color: black; border-style: solid; border-radius: 10px; padding-left: 20px; width: 400px;">
+                <h3>Digite um número hexadecimal:</h3>
+                <input id="demo1h" type="text" oninput="verHexadecimal()" placeholder="Ex: 9D2">
+                <br><br>
+
+                <button style="border-style: solid; border-radius: 7px;border-width: 2px; background-color: white;"
+                    onclick="convFromHexadecimal()">Converter</button>
+
+                <h3>Resultados:</h3>
+                <span style="display: flex; flex-direction: row;">Octal:
+                    <div id="demo2h"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">decimal:
+                    <div id="demo3h"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">Binário:
+                    <div id="demo4h"></div><br><br>
+                </span>
+            </div>
+            <div
+                style="background-color: white;border-width: 3px; border-color: black; border-style: solid; border-radius: 10px; padding-left: 20px; width: 400px;">
+                <h3>Digite um número binario:</h3>
+                <input id="demo1b" type="text" oninput="verBinario()" placeholder="Ex: 1001011101">
+                <br><br>
+
+                <button style="border-style: solid; border-radius: 7px;border-width: 2px; background-color: white;"
+                    onclick="convFromBinario()">Converter</button>
+
+                <h3>Resultados:</h3>
+                <span style="display: flex; flex-direction: row;">Octal:
+                    <div id="demo2b"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">Hexadecimal:
+                    <div id="demo3b"></div><br><br>
+                </span>
+                <span style="display: flex; flex-direction: row;">decimal:
+                    <div id="demo4b"></div><br><br>
+                </span>
+            </div>
+        </div>
+</body>
+
+
+<script>
+    function convFromDecimal() {
+        var decimal = Number(demo1d.value);
+
+        demo2d.innerHTML = decimal.toString(8);
+        demo3d.innerHTML = decimal.toString(16).toUpperCase();
+        demo4d.innerHTML = decimal.toString(2);
+    }
+
+    function convFromOctal() {
+        let octal = Number(demo1o.value)
+        let decimal = parseInt(octal, 8)
+
+        demo2o.innerHTML = decimal
+        demo3o.innerHTML = decimal.toString(16).toUpperCase()
+        demo4o.innerHTML = decimal.toString(2)
+
+    }
+
+    function convFromHexadecimal() {
+        let hexa = demo1h.value
+        let decimal = parseInt(hexa, 16)
+
+        demo2h.innerHTML = decimal.toString(8)
+        demo3h.innerHTML = decimal
+        demo4h.innerHTML = decimal.toString(2)
+    }
+
+    function convFromBinario() {
+        let binario = Number(demo1b.value)
+        let decimal = parseInt(binario, 2)
+
+        demo2b.innerHTML = decimal.toString(8)
+        demo3b.innerHTML = decimal.toString(16).toUpperCase()
+        demo4b.innerHTML = decimal
+    }
+
+    function verDecimal() {
+        demo1d.value = demo1d.value.replace(/[^0-9]/g, '')
+    }
+    function verOctal() {
+
+        demo1o.value = demo1o.value.replace(/[^0-7]/g, '')
+    }
+    function verHexadecimal() {
+
+        demo1h.value = demo1h.value.replace(/[^0-9a-fA-F]/g, '').toUpperCase()
+    }
+    function verBinario() {
+
+        demo1b.value = demo1b.value.replace(/[^0-1]/g, '')
+    }
+</script>
+</body>
+
+</html>
